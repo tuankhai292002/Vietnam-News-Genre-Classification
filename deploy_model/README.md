@@ -15,7 +15,7 @@ Follow these steps to set up and run the Data Moderation API:
 
 1. **Move AI Model File** :
 
-* Place `pytorch_model.bin` file into `deployment/models` .
+* Place `pytorch_model.bin` file into `deploy_model/models` .
 
 2. **Install Required Libraries** :
 
