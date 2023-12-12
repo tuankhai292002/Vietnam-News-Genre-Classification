@@ -1,0 +1,38 @@
+data:
+  # Define data information
+  train_path : /data/khaitt4/tuankhai_data_moderation/data_moderation/dataset/dataset/undersampled_data/big_data/phanchinh/big_train_balanced2.csv
+  test_path : /data/khaitt4/tuankhai_data_moderation/data_moderation/dataset/dataset/small_data/test_small2.csv
+  sample_path : /media/aiteamdanang/HDD10TB1/TuanKhai_Intern_AI/data_moderation/data_moderation/dataset/dataset/sample_df.csv
+  evaluate_path : /data/khaitt4/tuankhai_data_moderation/data_moderation/dataset/dataset/undersampled_data/big_data/phanchinh/val2.csv
+  labels : 
+    - Công nghệ
+    - Đời sống
+    - Giải trí
+    - Giáo dục
+    - Khoa học
+    - Kinh tế
+    - Nhà đất
+    - Pháp luật
+    - Thế giới
+    - Thể thao
+    - Văn hóa
+    - Xã hội
+    - Xe cộ
+
+hyperparameter:
+  # Define hyper param
+  batch_size_train : 68
+  batch_size_eval : 124
+  learning_rate : 1e-5
+  weight_decay : 0.1
+  num_epochs : 7
+  max_lenght_token : 256
+#learning_rate ngay 4/11 1e-6
+
+
+model_information:  
+  embedding_model : vietdata/vietnamese-content-cls
+  prediction_model : vietdata/vietnamese-content-cls
+  output_dir : /data/khaitt4/tuankhai_data_moderation/.cache/model_logs/models/
+  log_dir : /data/khaitt4/tuankhai_data_moderation/.cache/model_logs/logs/
+  

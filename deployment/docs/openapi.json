@@ -1,0 +1,211 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Content moderation AI API",
+    "description": "This is very simple API of content moderation AI system",
+    "version": "0.0.1",
+    "x-logo": {
+      "url": "https://fastapi.tiangolo.com/img/logo-margin/logo-teal.png"
+    }
+  },
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Health Method",
+        "operationId": "health_method__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/content_moderation/": {
+      "get": {
+        "summary": "Health Method",
+        "operationId": "health_method_content_moderation__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/content_moderation/classify_text/": {
+      "post": {
+        "summary": "Classify",
+        "description": "This API is using for classifying topic for a text\n\nArgs:\n\n    text (string): Text you want to classify\n\n    return_all_probabilities (bool): Set to true to return sorted probabilities of all topics. Default: true\n\n    enable_profanity_check (bool):  Set to true to enable profanity checking. If the text contains bad words, the system will not classify the topic. Default: true\nReturns:\n\n    {\n        \"result\": {},\n        \"message\": \"\"\n    }",
+        "operationId": "classify_content_moderation_classify_text__post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TopicClassifyRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {},
+                "examples": {
+                  "Example": {
+                    "summary": "return_all_probabilities = true",
+                    "value": {
+                      "result": {
+                        "Xe cộ": 0.9861,
+                        "Công nghệ": 0.00598,
+                        "Nhà đất": 0.00358,
+                        "Xã hội": 0.00095,
+                        "Kinh tế": 0.00089,
+                        "Pháp luật": 0.00059,
+                        "Thế giới": 0.00039,
+                        "Khoa học": 0.00037,
+                        "Giải trí": 0.00035,
+                        "Thể thao": 0.00028,
+                        "Đời sống": 0.00027,
+                        "Giáo dục": 0.00013,
+                        "Văn hóa": 0.00013
+                      },
+                      "message": "Success"
+                    }
+                  },
+                  "Example 2": {
+                    "summary": "return_all_probabilities = false",
+                    "value": {
+                      "result": {
+                        "Xe cộ": 0.9861
+                      },
+                      "message": "Success"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Example0": {
+                    "summary": "Text is null",
+                    "value": {
+                      "result": {},
+                      "message": "Failed, text is null !"
+                    }
+                  },
+                  "Example2": {
+                    "summary": "Text contains bad words",
+                    "value": {
+                      "result": {},
+                      "message": "Failed, text contains bad word !"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "TopicClassifyRequest": {
+        "properties": {
+          "text": {
+            "type": "string",
+            "title": "Text",
+            "example": "Xe Massda CX-05 có giá bao nhiêu tiền ?"
+          },
+          "return_all_probabilities": {
+            "type": "boolean",
+            "title": "Return All Probabilities",
+            "default": true
+          },
+          "enable_profanity_check": {
+            "type": "boolean",
+            "title": "Enable Profanity Check",
+            "default": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "text"
+        ],
+        "title": "TopicClassifyRequest"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}
