@@ -1,8 +1,8 @@
 # Vietnamese Text Classification
 
-This repository contains two main directories: `deploy_model` and `finetune_model`.
-
 ## Directories
+
+This repository contains two main directories: `deploy_model` and `finetune_model`.
 
 1. **`deploy_model`**: This directory contains the files necessary for deploying the model, including the API implementation
 
