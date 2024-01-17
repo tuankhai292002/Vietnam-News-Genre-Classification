@@ -62,7 +62,6 @@ def compute_metrics(pred):
 model_name = "/data/khaitt4/tuankhai_data_moderation/.cache/model_logs/models/checkpoint-19590"
 model = AutoModelForSequenceClassification.from_pretrained(model_name)
 device = torch.device("cuda")
-model.resize_token_embeddings(len(tokenizer))
 model = model.to(device)
 trainer = Trainer(
         model=model,
