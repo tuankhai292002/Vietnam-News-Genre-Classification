@@ -52,7 +52,6 @@ def training(cfg : DictConfig) -> None:
         cache_dir="/data/khaitt4/tuankhai_data_moderation/.cache/TuanKhai_Intern_AI",
     ) 
     device = torch.device("cuda")
-    model.resize_token_embeddings(len(tokenizer))
     model = model.to(device)
     
     train_data = load_dataset(
