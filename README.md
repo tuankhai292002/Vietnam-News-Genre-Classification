@@ -1,4 +1,4 @@
-# Vietnamese Text Classification
+# Vietnam News Genre Classification
 
 ## Directories
 
