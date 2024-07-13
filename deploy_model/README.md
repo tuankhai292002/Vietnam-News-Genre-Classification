@@ -1,6 +1,6 @@
 # Vietnam News Genre Classification API
 
-The Vietnamese Text Classification API can be used as a tool for profanity checking and news genre classification. 
+The Vietnamese News Genre Classification API can be used as a tool for profanity checking and news genre classification. 
 
 ## Prerequisites
 
