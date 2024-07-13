@@ -1,4 +1,7 @@
 # Vietnam News Genre Classification
+## Goal 
+
+The goal of this project is to classify Vietnamese news articles into 13 distinct categories, improving the accessibility and organization of information. The model classifies content into the following classes: Technology, Lifestyle, Entertainment, Education, Science, Economics, Real Estate, Law, World, Sports, Culture, Society, Vehicles.
 
 ## Directories
 
