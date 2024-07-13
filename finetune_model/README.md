@@ -1,6 +1,6 @@
 # Fine-tuning "vietnamese-content-cls" model
 
-This repository contains the source code used to fine-tune and evaluate the `vietnamese-content-cls` model on Hugging Face. The fine-tuned model has achieved an accuracy of approximately 85% and an F1 score of around 83%.
+This directory contains the source code used to fine-tune and evaluate the `vietnamese-content-cls` model on Hugging Face. The fine-tuned model has achieved an accuracy of approximately 85% and an F1 score of around 83%.
 
 ## Dataset
 
